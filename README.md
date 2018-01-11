@@ -43,9 +43,9 @@ Sebelum mulai menggunakan fitur SDK, lakukan inisialisasi SDK
 ### SDK Initialization
 
 ```java
-private String BASE_URL = "http://192.168.43.76:8000/";
-private String CLIENT_KEY = "zzz";
-private String CLIENT_SECRET = "aaa";
+private String BASE_URL = "<Everless base URL>";
+private String CLIENT_KEY = "<your Client Key>";
+private String CLIENT_SECRET = "<your Client Secret>";
 
 constructor(){
 
@@ -114,6 +114,33 @@ Pada kelas `Collection` terdapat child collection yang mengembalikan kelas `Coll
 
 ```java
 Collection childClx = clx.child(String child);
+```
+
+## Everless API Storage
+
+terdiri dari Upload, Get File URL, Delete _storage_
+
+### Storage
+
+Kelas `Storage` memiliki tiga _method_ yaitu `upload()`, `getFileURL()`, dan `delete()`.
+
+```java
+Storage stg = AnimalRunner.Ref.storage();
+```
+
+##### Upload
+```java
+stg.upload(final String fileName, final File file, final StorageCallback callback)
+```
+
+##### Get File URL
+```java
+stg.getFileURL(final String fileName, final StorageCallback callback)
+```
+
+##### Delete
+```java
+stg.delete(final String fileName, final StorageCallback callback)
 ```
 
 

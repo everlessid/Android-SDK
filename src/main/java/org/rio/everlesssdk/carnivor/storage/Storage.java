@@ -24,6 +24,55 @@ public class Storage {
     public Storage() {
     }
 
+    public void getFileURL(final String fileName, final StorageCallback callback){
+        Call<XRESStorage> call = iStorage.getFileURL("", fileName); // TODO: ganti dengan path storage
+        call.enqueue(new Callback<XRESStorage>() {
+            @Override
+            public void onResponse(Call<XRESStorage> call, Response<XRESStorage> response) {
+                if(response.body() == null) {
+                    callback.failure("Error: unknown");
+                }else if(response.body().getError()) {
+                    callback.failure(response.body().getMessage());
+                }else {
+                    if (response.body().getData() == null)
+                        callback.failure("Error: data undefined");
+                    else
+                        callback.success(response.body().getData());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<XRESStorage> call, Throwable t) {
+                callback.failure(t.getMessage());
+            }
+        });
+    }
+
+
+    public void delete(final String fileName, final StorageCallback callback){
+        Call<XRESStorage> call = iStorage.delete("", fileName); // TODO: ganti dengan path storage
+        call.enqueue(new Callback<XRESStorage>() {
+            @Override
+            public void onResponse(Call<XRESStorage> call, Response<XRESStorage> response) {
+                if(response.body() == null) {
+                    callback.failure("Error: unknown");
+                }else if(response.body().getError()) {
+                    callback.failure(response.body().getMessage());
+                }else {
+                    if (response.body().getData() == null)
+                        callback.failure("Error: data undefined");
+                    else
+                        callback.success(response.body().getData());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<XRESStorage> call, Throwable t) {
+                callback.failure(t.getMessage());
+            }
+        });
+    }
+
     public void upload(final String fileName, final File file, final StorageCallback callback){
         MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", fileName, RequestBody.create(null, file));
         iStorage = EverlessGo.createService(IStorage.class);
