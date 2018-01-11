@@ -2,18 +2,18 @@ apply plugin: 'com.android.library'
 
 ext {
     bintrayRepo = 'everlesdk-alpha'
-    bintrayName = 'EverlessSDK'
+    bintrayName = 'everlesssdk'
 
-    publishedGroupId = 'com.inthecheesefactory.thecheeselibrary'
+    publishedGroupId = 'org.rio.pilottestsdk'
     libraryName = 'EverlessSDK'
-    artifact = 'everlesdk-alpha'
+    artifact = 'everlesssdk'
 
     libraryDescription = 'SDK for Everless Android Platform'
 
     siteUrl = 'https://github.com/riochr17/everlesdk'
     gitUrl = 'https://github.com/riochr17/everlesdk.git'
 
-    libraryVersion = '0.0.1'
+    libraryVersion = '0.0.2'
 
     developerId = 'riochr17'
     developerName = 'Rio Chandra Rajagukguk'
@@ -32,7 +32,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "0.0.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
