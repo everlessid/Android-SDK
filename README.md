@@ -1,1 +1,145 @@
-# everlesdk
+# Everless SDK Android
+
+Android SDK untuk platform Everless
+
+## Getting Started
+
+SDK ini digunakan untuk membantu penggunaan Everless pada platform Android.
+
+### Prerequisites
+
+Sebelum menggunakan SDK ini, diharapkan telah mengerti teknologi dibawah:
+
+```
+Java
+REST API
+Android SDK
+```
+
+### Installing
+
+Berikut tahap untuk menggunakan SDK
+
+Pada root `build.gradle` tambahkan baris berikut
+
+```gradle
+repositories {
+    maven {
+        url  "https://dl.bintray.com/riochr17/everlesdk-alpha" 
+    }
+}
+```
+
+Lalu pada bagian project `build.gradle` tambahkan baris berikut
+
+```gradle
+compile 'org.rio.pilottestsdk:everlesssdk:0.0.2'
+```
+
+## Everless API General
+
+Sebelum mulai menggunakan fitur SDK, lakukan inisialisasi SDK
+
+### SDK Initialization
+
+```java
+private String BASE_URL = "http://192.168.43.76:8000/";
+private String CLIENT_KEY = "zzz";
+private String CLIENT_SECRET = "aaa";
+
+constructor(){
+
+    // Init SDK
+    AnimalRunner.init(BASE_URL, CLIENT_KEY, CLIENT_SECRET);
+}
+```
+
+Berikut daftar fitur yang terdapat pada SDK. Setiap _method_ yang terdapat pada SDK menggunakan sistem _asynchronous_ dengan implementasi _callback_. 
+
+## Everless API User Authentication
+
+terdiri dari Login dan Logout
+
+### Login
+
+Login menggunakan _username_ dan _password_
+
+```java
+AnimalRunner.AuthUser.login(String username, String password, LoginCallback callback)
+```
+
+### Logout
+
+```java
+AnimalRunner.AuthUser.logout(LogoutCallback callback)
+```
+
+## Everless API Collection
+
+terdiri dari Create, Retrieve, Update, Delete _collection_
+
+### Collection
+
+Kelas `Collection` memiliki empat _method_ yaitu `create()`, `retrieve()`, `update()`, dan `delete()`.
+
+```java
+Collection clx = AnimalRunner.Ref.collection(String collectionName);
+```
+
+##### Create
+```java
+clx.create(EVPair body, CollectionCallback callback);                 // create collection variasi 1
+clx.create(String uniqueID, EVPair body, CollectionCallback callback) // create collection variasi 2
+```
+
+##### Retrieve
+```java
+clx.retrieve(CollectionCallback callback)                             // retrieve collection
+```
+
+##### Update
+```java
+clx.update(EVPair body, CollectionCallback callback)                  // update collection variasi 1
+clx.update(String uniqueID, EVPair body, CollectionCallback callback) // update collection variasi 2
+```
+
+##### Delete
+```java
+clx.delete(CollectionCallback callback)                               // delete collection
+```
+
+### Child Collection
+
+Pada kelas `Collection` terdapat child collection yang mengembalikan kelas `Collection`. Fitur ini digunakan untuk mengakses _child path_ dari _collection_ tersebut.
+
+```java
+Collection childClx = clx.child(String child);
+```
+
+
+## Built With
+
+* [Gradle](http://www.https://gradle.org/) - Adaptable, fast automation for all
+* [Maven](https://maven.apache.org/) - Dependency Management
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Authors
+
+* **Rio Chandra Rajagukguk** - *Alpha version* - [Rio's Github](https://github.com/riochr17)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Everless, Bandung Digital Valey, Telkom Indonesia, Gegerkalong, Bandung
