@@ -138,7 +138,7 @@ stg.upload(final String fileName, final File file, final StorageCallback callbac
 Direct alamat url berkas akan mengunduh berkas menggunakan Download Manager yang tersedia pada device versi Gingerbread atau lebih terbaru. Metode ini mengembalikan `Exception` jika Download Manager tidak tersedia pada device yang digunakan.
 
 ```java
-AnimalRunner.Ref.storage().directDownloadFile(Context context, String fileUrl) throws Exception;
+stg.directDownloadFile(Context context, String fileUrl) throws Exception;
 ```
 
 ##### Delete
