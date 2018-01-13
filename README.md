@@ -140,7 +140,7 @@ stg.getFileURL(final String fileName, final StorageCallback callback)
 
 ##### Delete
 ```java
-stg.delete(final String fileName, final StorageCallback callback)
+stg.delete(final String uid, final StorageCallback callback)
 ```
 
 
