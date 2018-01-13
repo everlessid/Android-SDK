@@ -24,11 +24,11 @@ public interface IStorage {
     Call<XRESStorage> upload(@Url String url, @Part MultipartBody.Part file);
 
     @GET
-    Call<XRESStorage> getFileURL(@Url String url, @Query("filename") String filename);
+    Call<XRESStorage> getFileURL(@Url String url, @Query("uuid") String filename);
 
     @GET
     Call<ResponseBody> getFileBinary(@Url String fileUrl);
 
     @DELETE
-    Call<XRESStorage> delete(@Url String url, @Query("filename") String filename);
+    Call<XRESStorage> delete(@Url String url, @Query("uuid") String filename);
 }

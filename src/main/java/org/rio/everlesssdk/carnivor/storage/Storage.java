@@ -31,9 +31,9 @@ public class Storage {
     public Storage() {
     }
 
-    public void getFileURL(final String fileName, final StorageCallback callback){
+    public void getFileURL(final String uuid, final StorageCallback callback){
         iStorage = EverlessGo.createService(IStorage.class);
-        Call<XRESStorage> call = iStorage.getFileURL("", fileName); // TODO: ganti dengan path storage
+        Call<XRESStorage> call = iStorage.getFileURL(BASE_STORAGE_UPLOAD_PATH_URL, uuid); // TODO: ganti dengan path storage
         call.enqueue(new Callback<XRESStorage>() {
             @Override
             public void onResponse(Call<XRESStorage> call, Response<XRESStorage> response) {

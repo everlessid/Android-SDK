@@ -122,7 +122,7 @@ terdiri dari Upload, Get File URL, Delete _storage_
 
 ### Storage
 
-Kelas `Storage` memiliki tiga _method_ yaitu `upload()`, `getFileURL()`, dan `delete()`.
+Kelas `Storage` memiliki empat _method_ yaitu `upload()`, `directDownloadFile()`, `getFileURL()`, dan `delete()`.
 
 ```java
 Storage stg = AnimalRunner.Ref.storage();
@@ -141,11 +141,41 @@ Direct alamat url berkas akan mengunduh berkas menggunakan Download Manager yang
 stg.directDownloadFile(Context context, String fileUrl) throws Exception;
 ```
 
+##### Get File URL
+
+Method ini mengembalikan url berdasarkan UUID berkas tersebut.
+
+```java
+stg.getFileURL(final String uuid, final StorageCallback callback);
+```
+
 ##### Delete
 ```java
 stg.delete(final String uid, final StorageCallback callback)
 ```
 
+### Geo
+
+Kelas `Geo` memiliki tiga _method_ yaitu `upload()`, `getFileURL()`, dan `delete()`. Pada Geo terdapat dua jenis model data yaitu `Geo` dan `ListGeo`, `ListGeo` merupakan data berisi list dari `Geo`.
+
+```java
+Geo geo = AnimalRunner.Ref.geo();
+```
+
+##### Save Location
+```java
+geo.saveLocation(final EVPair body, final GeoCallback callback)
+```
+
+##### Get Location Specific
+```java
+geo.getLocation(final String uuid, final GeoCallback callback)
+```
+
+##### Get Location By Radius
+```java
+geo.getLocationByRadius(final Double radius, final ListGeoCallback callback)
+```
 
 ## Built With
 
