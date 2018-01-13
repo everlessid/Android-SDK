@@ -51,34 +51,32 @@ public class EverlessGo {
     }
 
     public static <S> S createService(Class<S> serviceClass){
-        if (!httpClient.interceptors().contains(logging)) {
+        try {
             EverlessCreds.CredentialModel emc = null;
-            try {
-                emc = EverlessCreds.getCreds();
-                Log.d("GETCREDS", String.valueOf(emc == null));
+            emc = EverlessCreds.getCreds();
+
+            Retrofit.Builder builder = getBuilder(emc.baseUrl);
+            builder.client(httpClient.build());
+
+            if (!httpClient.interceptors().contains(logging)) {
                 httpClient.addInterceptor(logging);
-                Log.d("GETCREDS", String.valueOf(0));
                 httpClient.addInterceptor(getClientSecretAndKeyInterception(emc.clientKey, emc.clientSecret));
-                Log.d("GETCREDS", String.valueOf(1));
-                Retrofit.Builder builder = getBuilder(emc.baseUrl);
-                Log.d("GETCREDS", String.valueOf(2));
-                builder.client(httpClient.build());
-                Log.d("GETCREDS", String.valueOf(3));
-                retrofit = builder.build();
-                Log.d("GETCREDS", String.valueOf(4));
-                Log.d("GETCREDS", "baseurl: " + emc.baseUrl);
-                Log.d("GETCREDS", "clientKey: " + emc.clientKey);
-                Log.d("GETCREDS", "clientSecret: " + emc.clientSecret);
-                Log.d("GETCREDS", "is Retrofit null? => " + String.valueOf(retrofit == null));
-                Log.d("GETCREDS", "is Service Interface null? => " + String.valueOf(serviceClass == null));
-
-                return retrofit.create(serviceClass);
-            } catch (Exception e) {
-                Log.e("CREDENTIAL-ISSUE", "Credential belum di set: " + e.getMessage());
-                e.printStackTrace();
             }
-        }
 
-        return null;
+            retrofit = builder.build();
+            Log.d("GETCREDS", "baseurl: " + emc.baseUrl);
+            Log.d("GETCREDS", "clientKey: " + emc.clientKey);
+            Log.d("GETCREDS", "clientSecret: " + emc.clientSecret);
+            Log.d("GETCREDS", "is Retrofit null? => " + String.valueOf(retrofit == null));
+            Log.d("GETCREDS", "is Service Interface null? => " + String.valueOf(serviceClass == null));
+
+            return retrofit.create(serviceClass);
+
+        } catch (Exception e) {
+            Log.e("CREDENTIAL-ISSUE", "Credential belum di set: " + e.getMessage());
+            e.printStackTrace();
+
+            return null;
+        }
     }
 }

@@ -102,4 +102,9 @@ public class Storage {
             }
         });
     }
+
+    // upload variation
+    public void upload(final File file, final StorageCallback callback){
+        upload(file.getName(), file, callback);
+    }
 }
