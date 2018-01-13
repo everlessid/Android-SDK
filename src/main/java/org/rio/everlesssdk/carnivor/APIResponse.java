@@ -1,6 +1,6 @@
 package org.rio.everlesssdk.carnivor;
 
-import com.google.gson.annotations.Expose;
+import com.google.gson.annotationsg.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;

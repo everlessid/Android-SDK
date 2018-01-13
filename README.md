@@ -33,7 +33,7 @@ repositories {
 Lalu pada bagian project `build.gradle` tambahkan baris berikut
 
 ```gradle
-compile 'org.rio.pilottestsdk:everlesssdk:0.0.4'
+compile 'org.rio.pilottestsdk:everlesssdk:0.0.5'
 ```
 
 ## Everless API General
