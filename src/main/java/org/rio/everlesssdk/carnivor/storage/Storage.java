@@ -80,7 +80,7 @@ public class Storage {
             Log.d("NULLX", "null---");
             return;
         }
-        Call<XRESStorage> call = iStorage.upload("index.php", filePart);
+        Call<XRESStorage> call = iStorage.upload("upload", filePart);
         call.enqueue(new Callback<XRESStorage>() {
             @Override
             public void onResponse(Call<XRESStorage> call, Response<XRESStorage> response) {
