@@ -154,6 +154,8 @@ stg.getFileURL(final String uuid, final StorageCallback callback);
 stg.delete(final String uid, final StorageCallback callback)
 ```
 
+## Everless API Geo
+
 ### Geo
 
 Kelas `Geo` memiliki tiga _method_ yaitu `saveLocation()`, `getLocation()`, dan `getLocationByRadius()`. Pada Geo terdapat dua jenis model data yaitu `Geo` dan `ListGeo`, `ListGeo` merupakan data berisi list dari `Geo`.
