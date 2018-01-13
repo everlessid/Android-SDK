@@ -156,7 +156,7 @@ stg.delete(final String uid, final StorageCallback callback)
 
 ### Geo
 
-Kelas `Geo` memiliki tiga _method_ yaitu `upload()`, `getFileURL()`, dan `delete()`. Pada Geo terdapat dua jenis model data yaitu `Geo` dan `ListGeo`, `ListGeo` merupakan data berisi list dari `Geo`.
+Kelas `Geo` memiliki tiga _method_ yaitu `saveLocation()`, `getLocation()`, dan `getLocationByRadius()`. Pada Geo terdapat dua jenis model data yaitu `Geo` dan `ListGeo`, `ListGeo` merupakan data berisi list dari `Geo`.
 
 ```java
 Geo geo = AnimalRunner.Ref.geo();
