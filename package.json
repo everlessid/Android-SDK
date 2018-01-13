@@ -1,0 +1,27 @@
+{
+  "name": "everlesssdk",
+  "version": "1.0.0",
+  "description": "Fake server for Everless test purpose",
+  "main": "fakeserver.js",
+  "scripts": {
+    "start": "node fakeserver.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riochr17/everlesdk.git"
+  },
+  "author": "Rio Chandra Rajagukguk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riochr17/everlesdk/issues"
+  },
+  "homepage": "https://github.com/riochr17/everlesdk#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-fileupload": "^0.3.0",
+    "formidable": "^1.1.1",
+    "serve-index": "^1.9.1",
+    "serve-static": "^1.13.1"
+  }
+}

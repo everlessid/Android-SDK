@@ -3,6 +3,7 @@ package org.rio.everlesssdk.carnivor.storage;
 import org.rio.everlesssdk.carnivor.storage.res.XRESStorage;
 
 import okhttp3.MultipartBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
@@ -24,6 +25,9 @@ public interface IStorage {
 
     @GET
     Call<XRESStorage> getFileURL(@Url String url, @Query("filename") String filename);
+
+    @GET
+    Call<ResponseBody> getFileBinary(@Url String fileUrl);
 
     @DELETE
     Call<XRESStorage> delete(@Url String url, @Query("filename") String filename);

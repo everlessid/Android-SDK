@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/riochr17/everlesdk'
     gitUrl = 'https://github.com/riochr17/everlesdk.git'
 
-    libraryVersion = '0.0.3'
+    libraryVersion = '0.0.4'
 
     developerId = 'riochr17'
     developerName = 'Rio Chandra Rajagukguk'
@@ -32,7 +32,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
-        versionName "0.0.3"
+        versionName "0.0.4"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
