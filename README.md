@@ -33,7 +33,7 @@ repositories {
 Lalu pada bagian project `build.gradle` tambahkan baris berikut
 
 ```gradle
-compile 'org.rio.pilottestsdk:everlesssdk:0.0.2'
+compile 'org.rio.pilottestsdk:everlesssdk:0.0.4'
 ```
 
 ## Everless API General
@@ -133,9 +133,12 @@ Storage stg = AnimalRunner.Ref.storage();
 stg.upload(final String fileName, final File file, final StorageCallback callback)
 ```
 
-##### Get File URL
+##### Direct File Download
+
+Direct alamat url berkas akan mengunduh berkas menggunakan Download Manager yang tersedia pada device versi Gingerbread atau lebih terbaru. Metode ini mengembalikan `Exception` jika Download Manager tidak tersedia pada device yang digunakan.
+
 ```java
-stg.getFileURL(final String fileName, final StorageCallback callback)
+AnimalRunner.Ref.storage().directDownloadFile(Context context, String fileUrl) throws Exception;
 ```
 
 ##### Delete
