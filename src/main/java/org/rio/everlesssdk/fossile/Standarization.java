@@ -10,5 +10,8 @@ public class Standarization {
         PREFERENCES_CODE_APP = "everless-prefs",
         PREFERENCES_CONSTANT_KEY = "ekey",
         PREFERENCES_CONSTANT_SECRET_KEY = "eskey",
-        BASE_COLLECTION_PATH_URL = "collection";
+        BASE_COLLECTION_PATH_URL = "collection",
+        BASE_STORAGE_UPLOAD_PATH_URL = "storage",
+        BASE_GEO_PATH_URL = "geo",
+        BASE_GEO_RADIUS_PATH_URL = BASE_GEO_PATH_URL + "/radius";
 }

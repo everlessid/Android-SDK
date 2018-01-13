@@ -19,6 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static org.rio.everlesssdk.carnivor.storage.util.FileUtils.writeResponseBodyToDisk;
+import static org.rio.everlesssdk.fossile.Standarization.BASE_STORAGE_UPLOAD_PATH_URL;
 
 /**
  * Created by rio.chandra.r on 12/18/17.
@@ -87,7 +88,7 @@ public class Storage {
 
     public void delete(final String fileName, final StorageCallback callback){
         iStorage = EverlessGo.createService(IStorage.class);
-        Call<XRESStorage> call = iStorage.delete("", fileName); // TODO: ganti dengan path storage
+        Call<XRESStorage> call = iStorage.delete(BASE_STORAGE_UPLOAD_PATH_URL, fileName); // TODO: ganti dengan path storage
         call.enqueue(new Callback<XRESStorage>() {
             @Override
             public void onResponse(Call<XRESStorage> call, Response<XRESStorage> response) {
@@ -117,7 +118,7 @@ public class Storage {
             Log.d("NULLX", "null---");
             return;
         }
-        Call<XRESStorage> call = iStorage.upload("upload", filePart);
+        Call<XRESStorage> call = iStorage.upload(BASE_STORAGE_UPLOAD_PATH_URL, filePart);
         call.enqueue(new Callback<XRESStorage>() {
             @Override
             public void onResponse(Call<XRESStorage> call, Response<XRESStorage> response) {

@@ -6,6 +6,7 @@ import android.util.Log;
 import org.rio.everlesssdk.carnivor.auth.Auth;
 import org.rio.everlesssdk.carnivor.auth.cab.LoginCallback;
 import org.rio.everlesssdk.carnivor.collection.Collection;
+import org.rio.everlesssdk.carnivor.geo.Geo;
 import org.rio.everlesssdk.carnivor.storage.Storage;
 import org.rio.everlesssdk.wings.EverlessCreds;
 
@@ -60,6 +61,13 @@ public class AnimalRunner {
             storage = new Storage();
 
             return storage;
+        }
+
+        public static Geo geo(){
+            Geo geo = null;
+            geo = new Geo();
+
+            return geo;
         }
     }
 
